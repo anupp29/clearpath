@@ -4,7 +4,7 @@ export type Section =
   | "dispatch"
   | "insights"
   | "health"
-  | "docs";
+  | "about";
 
 export interface MetaOptions {
   event_cause: string[];

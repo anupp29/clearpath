@@ -25,6 +25,19 @@ label - not a clean academic dataset.
 ## 2. System architecture
 
 ```mermaid
+%%{init: {
+  "theme": "base",
+  "themeVariables": {
+    "background": "transparent",
+    "primaryColor": "transparent",
+    "secondaryColor": "transparent",
+    "tertiaryColor": "transparent",
+    "clusterBkg": "transparent",
+    "clusterBorder": "#888",
+    "primaryBorderColor": "#555",
+    "lineColor": "#555"
+  }
+}}%%
 flowchart TB
 
 %% =========================
@@ -384,14 +397,9 @@ reproduction of the training-time feature pipeline used to score new events.
 ```
 clearpath-ai-ps2/
 ├── README.md                         <- this file
-├── DEPLOY_TO_HUGGINGFACE.md
 ├── ClearPath_PS2_Final.ipynb         <- full training notebook (EDA -> model -> persistence)
 ├── astram.csv                        <- raw ASTraM event log
 ├── clearpath_outputs/                <- all training-time charts and CSV artifacts
-├── PROMPTS/
-│   ├── frontend_prompt.md            <- prompt to (re)build a fancier standalone frontend
-│   ├── pitch_deck_prompt.md          <- prompt for NotebookLM / slide generation
-│   └── video_script.md               <- full pitch-video narration script
 └── huggingface_space/                <- everything needed to deploy the live dashboard
     ├── app.py                        <- Gradio Blocks dashboard (light, professional theme)
     ├── inference.py                  <- loads the pkl, reproduces the feature pipeline, scores events
