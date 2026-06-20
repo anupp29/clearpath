@@ -1,9 +1,17 @@
 # ClearPath AI — Hugging Face Space (Docker SDK)
-# Builds a container that serves the Gradio dashboard on the port HF Spaces expects.
+# Multi-stage build: React dashboard + FastAPI inference API on port 7860.
 
+# ---- Stage 1: Build React frontend ----
+FROM node:20-slim AS frontend-build
+WORKDIR /frontend
+COPY frontend/package.json ./
+RUN npm install --no-audit --no-fund
+COPY frontend/ ./
+RUN npm run build
+
+# ---- Stage 2: Python runtime ----
 FROM python:3.10-slim
 
-# System libs needed by lightgbm / xgboost wheels
 RUN apt-get update && apt-get install -y --no-install-recommends \
     libgomp1 \
     && rm -rf /var/lib/apt/lists/*
@@ -14,14 +22,13 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
+COPY --from=frontend-build /static ./static
 
-# Hugging Face Spaces (Docker SDK) routes traffic to port 7860 by default
 ENV GRADIO_SERVER_NAME=0.0.0.0
-ENV GRADIO_SERVER_PORT=7860
 EXPOSE 7860
 
-# Run as a non-root user (Spaces requirement for Docker SDK)
-RUN useradd -m -u 1000 spaceuser
+RUN useradd -m -u 1000 spaceuser && chown -R spaceuser:spaceuser /app
 USER spaceuser
 
-CMD ["python", "app.py"]
+# React dashboard + FastAPI (Gradio fallback: python app.py)
+CMD ["uvicorn", "api:app", "--host", "0.0.0.0", "--port", "7860"]

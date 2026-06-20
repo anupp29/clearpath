@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body,
+  #root {
+    @apply h-full;
+  }
+
+  body {
+    @apply bg-cp-bg text-cp-navy antialiased;
+  }
+}
+
+@layer components {
+  .section-label {
+    @apply text-[11px] font-semibold uppercase tracking-[0.08em] text-cp-muted;
+  }
+
+  .data-mono {
+    @apply font-mono text-sm tabular-nums;
+  }
+
+  .nav-item {
+    @apply flex w-full items-center gap-2 rounded-md px-3 py-2.5 text-left text-sm font-medium transition-colors;
+  }
+
+  .nav-item-active {
+    @apply bg-cp-blue text-white;
+  }
+
+  .nav-item-inactive {
+    @apply text-cp-navy hover:bg-white/80;
+  }
+
+  .form-field {
+    @apply w-full rounded-md border border-cp-border bg-white px-3 py-2 text-sm text-cp-navy outline-none transition focus:border-cp-blue focus:ring-1 focus:ring-cp-blue;
+  }
+
+  .btn-primary {
+    @apply rounded-md bg-cp-blue px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-[#1256A8] disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .btn-secondary {
+    @apply rounded-md border border-cp-border bg-white px-3 py-2 text-sm font-medium text-cp-navy transition hover:bg-cp-bg;
+  }
+}
+
+.leaflet-container {
+  font-family: Inter, "Segoe UI", sans-serif;
+  z-index: 0;
+}
+
+.leaflet-popup-content-wrapper {
+  border-radius: 6px;
+  border: 1px solid #dce3ed;
+}
