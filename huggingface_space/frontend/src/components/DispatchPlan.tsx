@@ -35,6 +35,8 @@ export function DispatchPlan() {
 
   useEffect(() => {
     load();
+    const interval = setInterval(load, 15000);
+    return () => clearInterval(interval);
   }, []);
 
   const filtered = useMemo(() => {
@@ -143,8 +145,13 @@ export function DispatchPlan() {
                 {filtered.slice(0, 200).map((row, i) => {
                   const tn = tierNum(row.tier);
                   return (
-                    <tr key={i} className="hover:bg-cp-bg/60">
-                      <td className="px-3 py-2 font-mono text-xs whitespace-nowrap">{row.datetime}</td>
+                    <tr key={i} className={`hover:bg-cp-bg/60 ${row.source === "live" ? "bg-blue-50/80" : ""}`}>
+                      <td className="px-3 py-2 font-mono text-xs whitespace-nowrap">
+                        {row.datetime}
+                        {row.source === "live" && (
+                          <span className="ml-1 rounded bg-cp-blue px-1 py-0.5 text-[9px] font-bold uppercase text-white">Live</span>
+                        )}
+                      </td>
                       <td className="px-3 py-2">{row.cause}</td>
                       <td className="px-3 py-2">{row.corridor}</td>
                       <td className="px-3 py-2">{row.station}</td>

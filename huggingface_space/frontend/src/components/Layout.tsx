@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import type { Section } from "../types";
+import { useAppContext } from "../context/AppContext";
 
 const NAV: { id: Section; label: string; desc: string }[] = [
   { id: "prediction", label: "Live Risk Prediction", desc: "Score new events" },
@@ -7,6 +8,7 @@ const NAV: { id: Section; label: string; desc: string }[] = [
   { id: "dispatch", label: "Dispatch Plan", desc: "Tier 3+ action list" },
   { id: "insights", label: "Model Insights", desc: "SHAP & CV metrics" },
   { id: "health", label: "System Health", desc: "Drift & quality" },
+  { id: "docs", label: "Documentation", desc: "Full project README" },
 ];
 
 interface LayoutProps {
@@ -16,6 +18,8 @@ interface LayoutProps {
 }
 
 export function Layout({ section, onSectionChange, children }: LayoutProps) {
+  const { modelWarm } = useAppContext();
+
   return (
     <div className="flex min-h-full flex-col">
       <header
@@ -33,6 +37,7 @@ export function Layout({ section, onSectionChange, children }: LayoutProps) {
           </div>
           <p className="font-mono text-xs opacity-75">
             {new Date().toISOString().slice(0, 19).replace("T", " ")} UTC
+            {modelWarm && " · ENGINE WARM"}
           </p>
         </div>
       </header>
@@ -41,7 +46,26 @@ export function Layout({ section, onSectionChange, children }: LayoutProps) {
         <nav className="hidden w-56 shrink-0 border-r border-cp-border bg-white/40 p-4 lg:block">
           <p className="section-label mb-3 px-3">Operations</p>
           <ul className="space-y-1">
-            {NAV.map((item) => (
+            {NAV.slice(0, 5).map((item) => (
+              <li key={item.id}>
+                <button
+                  type="button"
+                  onClick={() => onSectionChange(item.id)}
+                  className={`nav-item ${section === item.id ? "nav-item-active" : "nav-item-inactive"}`}
+                >
+                  <span>
+                    <span className="block">{item.label}</span>
+                    <span className={`text-[10px] font-normal ${section === item.id ? "text-white/80" : "text-cp-muted"}`}>
+                      {item.desc}
+                    </span>
+                  </span>
+                </button>
+              </li>
+            ))}
+          </ul>
+          <p className="section-label mb-3 mt-6 px-3">Reference</p>
+          <ul className="space-y-1">
+            {NAV.slice(5).map((item) => (
               <li key={item.id}>
                 <button
                   type="button"

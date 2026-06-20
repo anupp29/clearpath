@@ -311,6 +311,7 @@ class ClearPathEngine:
 
 
 _ENGINE = None
+_ENGINE_WARM = False
 
 
 def get_engine() -> ClearPathEngine:
@@ -318,3 +319,32 @@ def get_engine() -> ClearPathEngine:
     if _ENGINE is None:
         _ENGINE = ClearPathEngine()
     return _ENGINE
+
+
+def is_engine_warm() -> bool:
+    return _ENGINE_WARM
+
+
+WARMUP_EVENT = {
+    "event_cause": "construction",
+    "event_type": "planned",
+    "priority": "Low",
+    "veh_type": None,
+    "corridor": "Non-corridor",
+    "police_station": "K.R. Pura",
+    "zone": "East Zone 1",
+    "gba_identifier": "Bengaluru East Corporation",
+    "created_by_id": "FKUSR00500",
+    "latitude": 13.0086,
+    "longitude": 77.6973,
+    "start_datetime": "2026-09-01T23:30:00Z",
+}
+
+
+def warmup_engine() -> dict:
+    """Run one inference pass so tree models / calibrator are hot before traffic arrives."""
+    global _ENGINE_WARM
+    engine = get_engine()
+    result = engine.predict(dict(WARMUP_EVENT))
+    _ENGINE_WARM = True
+    return result

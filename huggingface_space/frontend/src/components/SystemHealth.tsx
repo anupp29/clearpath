@@ -58,6 +58,31 @@ export function SystemHealth() {
         <MetricCard label="Session Predictions" value={health.session_predictions} mono />
       </div>
 
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <MetricCard
+          label="Engine Status"
+          value={health.model_warm ? "WARM" : "COLD"}
+          mono
+        />
+        <MetricCard
+          label="Warmup Time"
+          value={health.warmup_ms != null ? `${health.warmup_ms.toFixed(0)}` : "—"}
+          sub="ms"
+          mono
+        />
+        {data.live_session && (
+          <>
+            <MetricCard label="Live Tier 3+" value={data.live_session.tier3_plus} mono />
+            <MetricCard
+              label="Live Mean Prob"
+              value={data.live_session.mean_probability != null ? `${(data.live_session.mean_probability * 100).toFixed(1)}` : "—"}
+              sub="%"
+              mono
+            />
+          </>
+        )}
+      </div>
+
       <Card
         className="border-2"
         accent={DRIFT_TEXT[drift.status]}

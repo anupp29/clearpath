@@ -1,6 +1,7 @@
 import type {
   DispatchRow,
   InsightsData,
+  LivePredictionMarker,
   MapEvent,
   MetaOptions,
   PredictRequest,
@@ -49,8 +50,8 @@ export const api = {
     }),
 
   getMapEvents: (eventType: string, riskTier: string) =>
-    request<{ events: MapEvent[]; total: number }>(
-      `/api/map/events?event_type=${encodeURIComponent(eventType)}&risk_tier=${encodeURIComponent(riskTier)}`,
+    request<{ events: MapEvent[]; total: number; live_total?: number; historical_total?: number }>(
+      `/api/map/events?event_type=${encodeURIComponent(eventType)}&risk_tier=${encodeURIComponent(riskTier)}&limit=10000`,
     ),
 
   getDispatch: () =>
@@ -59,6 +60,20 @@ export const api = {
   getInsights: () => request<InsightsData>("/api/insights"),
 
   getSampleEvents: () => request<SampleEvents>("/api/sample-events"),
+
+  getReadme: () => request<{ content: string; source: string }>("/api/docs/readme"),
+
+  getLiveEvents: () =>
+    request<{ events: LivePredictionMarker[]; total: number }>("/api/live/events"),
+
+  getHealth: () =>
+    request<{
+      status: string;
+      model_warm: boolean;
+      warmup_ms: number;
+      live_events: number;
+      session_predictions: number;
+    }>("/api/health"),
 };
 
 export { ApiError };

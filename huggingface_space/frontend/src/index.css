@@ -57,3 +57,76 @@
   border-radius: 6px;
   border: 1px solid #dce3ed;
 }
+
+.docs-prose {
+  @apply text-sm leading-relaxed text-cp-navy;
+}
+
+.docs-prose h1 {
+  @apply mb-4 mt-2 text-2xl font-bold tracking-tight text-cp-navy;
+}
+
+.docs-prose h2 {
+  @apply mb-3 mt-8 border-b border-cp-border pb-2 text-xl font-bold text-cp-navy;
+}
+
+.docs-prose h3 {
+  @apply mb-2 mt-6 text-lg font-semibold text-cp-navy;
+}
+
+.docs-prose p {
+  @apply my-3 text-cp-navy/90;
+}
+
+.docs-prose ul,
+.docs-prose ol {
+  @apply my-3 ml-5 list-disc space-y-1;
+}
+
+.docs-prose ol {
+  @apply list-decimal;
+}
+
+.docs-prose li {
+  @apply text-cp-navy/90;
+}
+
+.docs-prose table {
+  @apply my-4 w-full border-collapse text-xs;
+}
+
+.docs-prose th {
+  @apply border border-cp-border bg-cp-bg px-3 py-2 text-left font-semibold;
+}
+
+.docs-prose td {
+  @apply border border-cp-border px-3 py-2 font-mono;
+}
+
+.docs-prose code {
+  @apply rounded bg-cp-bg px-1.5 py-0.5 font-mono text-xs text-cp-blue;
+}
+
+.docs-prose pre {
+  @apply my-4 overflow-x-auto rounded-md border border-cp-border bg-cp-bg p-4;
+}
+
+.docs-prose pre code {
+  @apply bg-transparent p-0 text-xs text-cp-navy;
+}
+
+.docs-prose blockquote {
+  @apply my-4 border-l-4 border-cp-blue pl-4 italic text-cp-muted;
+}
+
+.docs-prose hr {
+  @apply my-6 border-cp-border;
+}
+
+.docs-prose a {
+  @apply text-cp-blue underline hover:text-cp-navy;
+}
+
+.docs-prose strong {
+  @apply font-semibold text-cp-navy;
+}
