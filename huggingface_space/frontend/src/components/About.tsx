@@ -16,7 +16,7 @@ export function About() {
           <p className="mb-4">
             <strong>Event-Driven Congestion (Planned & Unplanned)</strong>
           </p>
-
+          
           <h4 className="font-semibold mt-4 mb-2">Operational Challenge</h4>
           <p className="mb-4">
             Political rallies, festivals, sports events, construction activities, and sudden gatherings create localized traffic breakdowns.
@@ -37,11 +37,11 @@ export function About() {
 
         <section>
           <h3 className="text-lg font-semibold mb-4 border-b pb-2">Model Outputs & Inference</h3>
-
+          
           <div className="space-y-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
-              <div>
-                <img src="/api/assets/outputs/eda_overview.png" alt="EDA Overview" className="rounded shadow-sm max-w-full h-auto border border-gray-200" />
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
+              <div className="w-full">
+                <img src="/eda_overview.png" alt="EDA Overview" className="rounded shadow-sm w-full h-auto object-contain border border-gray-200" />
               </div>
               <div>
                 <h4 className="font-semibold text-md mb-2">Exploratory Data Analysis</h4>
@@ -51,9 +51,9 @@ export function About() {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
-              <div>
-                <img src="/api/assets/outputs/impact_quantification.png" alt="Impact Quantification" className="rounded shadow-sm max-w-full h-auto border border-gray-200" />
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
+              <div className="w-full">
+                <img src="/impact_quantification.png" alt="Impact Quantification" className="rounded shadow-sm w-full h-auto object-contain border border-gray-200" />
               </div>
               <div>
                 <h4 className="font-semibold text-md mb-2">Impact Quantification</h4>
@@ -63,9 +63,9 @@ export function About() {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
-              <div>
-                <img src="/api/assets/outputs/shap_importance.png" alt="SHAP Importance" className="rounded shadow-sm max-w-full h-auto border border-gray-200" />
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
+              <div className="w-full">
+                <img src="/shap_importance.png" alt="SHAP Importance" className="rounded shadow-sm w-full h-auto object-contain border border-gray-200" />
               </div>
               <div>
                 <h4 className="font-semibold text-md mb-2">Feature Importance (SHAP)</h4>
@@ -74,10 +74,10 @@ export function About() {
                 </p>
               </div>
             </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
-              <div>
-                <img src="/api/assets/outputs/calibration_and_folds.png" alt="Calibration and Folds" className="rounded shadow-sm max-w-full h-auto border border-gray-200" />
+            
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
+              <div className="w-full">
+                <img src="/calibration_and_folds.png" alt="Calibration and Folds" className="rounded shadow-sm w-full h-auto object-contain border border-gray-200" />
               </div>
               <div>
                 <h4 className="font-semibold text-md mb-2">Model Calibration & Cross-Validation</h4>
@@ -87,9 +87,9 @@ export function About() {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
-              <div>
-                <img src="/api/assets/outputs/officer_risk.png" alt="Officer Risk" className="rounded shadow-sm max-w-full h-auto border border-gray-200" />
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
+              <div className="w-full">
+                <img src="/officer_risk.png" alt="Officer Risk" className="rounded shadow-sm w-full h-auto object-contain border border-gray-200" />
               </div>
               <div>
                 <h4 className="font-semibold text-md mb-2">Officer Risk Profiling</h4>
@@ -99,9 +99,9 @@ export function About() {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
-              <div>
-                <img src="/api/assets/outputs/outlier_analysis.png" alt="Outlier Analysis" className="rounded shadow-sm max-w-full h-auto border border-gray-200" />
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
+              <div className="w-full">
+                <img src="/outlier_analysis.png" alt="Outlier Analysis" className="rounded shadow-sm w-full h-auto object-contain border border-gray-200" />
               </div>
               <div>
                 <h4 className="font-semibold text-md mb-2">Outlier Analysis</h4>
@@ -110,10 +110,10 @@ export function About() {
                 </p>
               </div>
             </div>
-
-             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
-              <div>
-                <img src="/api/assets/outputs/signal_end_address.png" alt="Signal End Address" className="rounded shadow-sm max-w-full h-auto border border-gray-200" />
+            
+             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
+              <div className="w-full">
+                <img src="/signal_end_address.png" alt="Signal End Address" className="rounded shadow-sm w-full h-auto object-contain border border-gray-200" />
               </div>
               <div>
                 <h4 className="font-semibold text-md mb-2">Signal & Address Correlation</h4>
