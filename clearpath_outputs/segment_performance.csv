@@ -1,6 +1,3 @@
-,n,closures,AUC,F1,Precision,Recall,TP,Total_pos
-Full dataset,6252.0,581.0,0.803,0.395,0.288,0.63,366.0,581.0
-Planned events,382.0,158.0,0.816,0.708,0.584,0.899,142.0,158.0
-High-closure causes,826.0,298.0,0.711,0.597,0.486,0.772,230.0,298.0
-VIP / public / protest,100.0,60.0,0.849,0.837,0.728,0.983,59.0,60.0
-Unplanned only,5870.0,423.0,0.771,0.321,0.224,0.567,240.0,423.0
+version https://git-lfs.github.com/spec/v1
+oid sha256:b240da5c0c9e2e95475c23424958c88c1da4707332591f5a9d40f7f250db0b41
+size 373
