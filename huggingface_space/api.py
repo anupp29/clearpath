@@ -36,6 +36,7 @@ from inference import (
 BASE_DIR = Path(__file__).resolve().parent
 DATA_DIR = BASE_DIR / "data"
 STATIC_DIR = BASE_DIR / "static"
+OUTPUTS_DIR = BASE_DIR.parent / "clearpath_outputs"
 
 TIER_COLORS = {
     1: "#2E7D32",
@@ -482,8 +483,8 @@ def sample_events():
 @app.get("/api/docs/readme")
 def docs_readme():
     candidates = [
-        DATA_DIR / "project_readme.md",
         BASE_DIR.parent / "README.md",
+        DATA_DIR / "project_readme.md",
     ]
     for path in candidates:
         if path.exists():
@@ -491,6 +492,9 @@ def docs_readme():
             return {"content": content, "source": str(path.name)}
     raise HTTPException(status_code=404, detail="README not found")
 
+
+if OUTPUTS_DIR.is_dir():
+    app.mount("/api/assets/outputs", StaticFiles(directory=OUTPUTS_DIR), name="outputs")
 
 if STATIC_DIR.is_dir():
     app.mount("/assets", StaticFiles(directory=STATIC_DIR / "assets"), name="assets")
