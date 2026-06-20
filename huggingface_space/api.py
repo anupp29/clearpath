@@ -482,8 +482,8 @@ def sample_events():
 @app.get("/api/docs/readme")
 def docs_readme():
     candidates = [
-        DATA_DIR / "project_readme.md",
         BASE_DIR.parent / "README.md",
+        DATA_DIR / "project_readme.md",
     ]
     for path in candidates:
         if path.exists():
