@@ -25,6 +25,19 @@ label - not a clean academic dataset.
 ## 2. System architecture
 
 ```mermaid
+%%{init: {
+  "theme": "base",
+  "themeVariables": {
+    "background": "transparent",
+    "primaryColor": "transparent",
+    "secondaryColor": "transparent",
+    "tertiaryColor": "transparent",
+    "clusterBkg": "transparent",
+    "clusterBorder": "#888",
+    "primaryBorderColor": "#555",
+    "lineColor": "#555"
+  }
+}}%%
 flowchart TB
 
 %% =========================
