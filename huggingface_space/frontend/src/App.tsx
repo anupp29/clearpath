@@ -7,7 +7,7 @@ import { HotspotMap } from "./components/HotspotMap";
 import { DispatchPlan } from "./components/DispatchPlan";
 import { ModelInsights } from "./components/ModelInsights";
 import { SystemHealth } from "./components/SystemHealth";
-import { Documentation } from "./components/Documentation";
+import { About } from "./components/About";
 
 function SectionContent({ section }: { section: Section }) {
   switch (section) {
@@ -21,8 +21,8 @@ function SectionContent({ section }: { section: Section }) {
       return <ModelInsights />;
     case "health":
       return <SystemHealth />;
-    case "docs":
-      return <Documentation />;
+    case "about":
+      return <About />;
   }
 }
 

@@ -8,7 +8,7 @@ const NAV: { id: Section; label: string; desc: string }[] = [
   { id: "dispatch", label: "Dispatch Plan", desc: "Tier 3+ action list" },
   { id: "insights", label: "Model Insights", desc: "SHAP & CV metrics" },
   { id: "health", label: "System Health", desc: "Drift & quality" },
-  { id: "docs", label: "Documentation", desc: "Full project README" },
+  { id: "about", label: "About", desc: "Hackathon Info & Outputs" },
 ];
 
 interface LayoutProps {
